@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/purchase.css">
+</head>
+
+<body>
+  <%- include('navbar'); %>
+    <h1 style="font-size: 5vw;" class="text-success text-center mb-2">Sell Items</h1>
+    <div class="container">
+      <form action="/sellitem<%=buyer.itemname%>" method="post">
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Client Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="fname" name="client" placeholder="" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Item Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="fname" name="itemname" value="<%=buyer.itemname%>" readonly>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="itemname">item Quantity</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="Quan1" name="Quantity" value="<%=buyer.quant%>" oninput="total()" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="country">wieght</label>
+          </div>
+          <div class="col-75">
+            <div class="col-75">
+              <input type="text" id="Quan1sss" name="wieght" value="<%=buyer.grams%>" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="subject">Balance</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="Balance" name="Balance" placeholder="" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Paid</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="fname" name="Paid" placeholder="" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="fname">Total</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="ftotal" name="Total" placeholder="" required>
+          </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="CONFIRM">
+        </div>
+      </form>
+    </div>
+
+
+</body>
+<script>
+  function total() {
+    let a = parseInt(document.getElementById('Quan1').value)
+    let b = 50
+    let c = a * b
+    document.getElementById('ftotal').value = c
+  }
+</script>
+
+</html>
